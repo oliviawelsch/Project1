@@ -8,6 +8,7 @@ $password = $_POST ['password'];
 
 <label><b>Your email address is:</b></label>
 <?php
+if(strlen($email_address)==0) {echo("Password is required.");}
 if(strpos($email_address,'@')==True){echo("$email_address");}
 else echo("Email format not valid (must contain @ sign).");
 ?><br>
