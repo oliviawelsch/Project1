@@ -29,7 +29,8 @@ else {echo($birthday);}
 
 <label><b>Your email address is:</b></label>
 <?php
-if(strpos($email_address,'@')==True){echo("$email_address");}
+if(strlen($email_address)==0) {echo("Email is required.");}
+else if(strpos($email_address,'@')==True){echo("$email_address");}
 else echo("Email format not valid (must contain @ sign).");
 ?><br>
 
