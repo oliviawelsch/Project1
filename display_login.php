@@ -1,18 +1,24 @@
+<?php
+$email_address = $_POST ['email_address'];
+$password = $_POST ['password'];
+?>
+
 <html>
 <body>
 
-<?php?
-$email_address = filter_input(INPUT_POST,'email_address')
-$password = filter_input(INPUT_POST,'password')
-?>
+<label><b>Your email address is:</b></label>
+<?php
+if(strpos($email_address,'@')==True){echo("$email_address");}
+else echo("Email format not valid (must contain @ sign).");
+?><br>
 
 
-<label>Your email address is:</label>
-<span><?php echo htmlspecialchars($email_address); ?></span><br>
-
-
-<label>Your password is:</label>
-<span><?php echo htmlspecialchars($password); ?></body></span>
+<label><b>Your password is:</b></label>
+<?php
+if(strlen($password)==0) {echo("Password is required.");}
+else if(strlen($password) <8) {echo("Password must be at least 8 characters.");}
+else {echo($password);}
+?><br>
 
 </body>
 </html>
