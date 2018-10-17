@@ -1,27 +1,18 @@
 <html>
 <body>
 
-<?php
-$emailErr = $passwordErr = "";
-$email = $password = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-if (empty($_POST["email_address"])) {
-$emailErr = "Email address is required";
-} else {
-$email = test_input($_POST["email_address"]);
-}
-
-if (empty($_POST["password"])) {
-$passwordErr = "Password is required";
-} else {
-$email = test_input($_POST["password"]);
-}
-
+<?php?
+$email_address = filter_input(INPUT_POST,'email_address')
+$password = filter_input(INPUT_POST,'password')
 ?>
 
-Your email address is: <?php echo $_POST["email_address"]; ?><br>
-Your password is: <?php echo $_POST["password"]; ?>
+
+<label>Your email address is:</label>
+<span><?php echo htmlspecialchars($email_address); ?></span><br>
+
+
+<label>Your password is:</label>
+<span><?php echo htmlspecialchars($password); ?></body></span>
 
 </body>
 </html>
