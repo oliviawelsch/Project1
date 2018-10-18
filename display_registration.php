@@ -7,6 +7,12 @@ $password = $_POST ['password'];
 ?>
 
 <html>
+<style>
+    h1 {border: 3px solid black; text-align:center}
+    h2 {text-align:center}
+    form {font-size: x-large}
+    html{background-color:powderblue}
+</style>
 <body>
 
 <label><b>Your first name is:</b></label>

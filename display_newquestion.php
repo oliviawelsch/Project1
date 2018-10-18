@@ -5,6 +5,12 @@ $question_skills = $_POST ['question_skills'];
 ?>
 
 <html>
+<style>
+    h1 {border: 3px solid black; text-align:center}
+    h2 {text-align:center}
+    form {font-size: x-large}
+    html{background-color:powderblue}
+</style>
 <body>
 
 <label><b>Your question name is:</b></label>
