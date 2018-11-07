@@ -1,4 +1,5 @@
 <?php
+require "database.php";
 $email_address = $_POST ['email_address'];
 $password = $_POST ['password'];
 ?>
