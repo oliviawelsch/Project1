@@ -3,19 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Registration Form</title>
-    <style>
-        h1 {border: 3px solid black; text-align:center}
-        h2 {text-align:center}
-        form {font-size: x-large}
-        html{background-color:powderblue}
-    </style>
+    <link rel="stylesheet" href="registration.css">
 </head>
 <body>
 
+
 <main>
-    <h1>IS218 Project #1</h1>
-    <h2>Olivia Welsch</h2>
-    <h2>October 17, 2018</h2>
+    <h1>Registration Form</h1>
 
     <form action="display_registration.php" method="post">
 
@@ -27,13 +21,13 @@
             <input type="text" name="last_name"><br>
 
             <label>Birthday</label>
-            <input type="text" name="birthday"><br>
+            <input type="date" name="birthday"><br>
 
             <label>Email Address:</label>
             <input type="text" name="email_address"><br>
 
             <label>Password:</label>
-            <input type="text" name="password"><br>
+            <input type="password" name="password"><br>
         </div>
 
         <div id="buttons">

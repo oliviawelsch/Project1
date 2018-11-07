@@ -7,40 +7,39 @@ $password = $_POST ['password'];
 ?>
 
 <html>
-<style>
-    h1 {border: 3px solid black; text-align:center}
-    h2 {text-align:center}
-    form {font-size: x-large}
-    html{background-color:powderblue}
-</style>
+
+<head>
+    <link rel="stylesheet" href="registration.css">
+</head>
+
 <body>
 
-<label><b>Your first name is:</b></label>
+<label><b>First Name:</b></label>
 <?php
 if(strlen($first_name)==0) {echo("First name is required.");}
 else {echo($first_name);}
 ?><br>
 
-<label><b>Your last name is:</b></label>
+<label><b>Last Name:</b></label>
 <?php
 if(strlen($last_name)==0) {echo("Last name is required.");}
 else {echo($last_name);}
 ?><br>
 
-<label><b>Your birthday is:</b></label>
+<label><b>Birthday:</b></label>
 <?php
 if(strlen($birthday)==0) {echo("Birthday is required.");}
 else {echo($birthday);}
 ?><br>
 
-<label><b>Your email address is:</b></label>
+<label><b>Email Address:</b></label>
 <?php
 if(strlen($email_address)==0) {echo("Email is required.");}
 else if(strpos($email_address,'@')==True){echo("$email_address");}
 else echo("Email format not valid (must contain @ sign).");
 ?><br>
 
-<label><b>Your password is:</b></label>
+<label><b>Password:</b></label>
 <?php
 if(strlen($password)==0) {echo("Password is required.");}
 else if(strlen($password) <8) {echo("Password must be at least 8 characters.");}

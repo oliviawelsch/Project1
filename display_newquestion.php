@@ -10,7 +10,7 @@ $skillsarray=(explode(",",$quetion_skills));
 <html>
 
 <head>
-    <link rel="stylesheet" href="newquestion.css"
+    <link rel="stylesheet" href="newquestion.css">
 </head>
 
 <body>
