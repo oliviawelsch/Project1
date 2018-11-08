@@ -12,7 +12,6 @@
 
 <form action="display_login.php" method="post">
 
-
     <div id="data">
         <label>Email Address:</label>
         <input type="text" name="email_address"><br>
