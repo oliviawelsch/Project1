@@ -12,7 +12,7 @@
     <h1>Question Form</h1>
 
     <form action="display_newquestion.php" method="post">
-        <input type="hidden" name="userid" value="1">
+        <input type="hidden" name="userid" value="<?php echo $_GET["userid"]?>">
         <div id="data">
             <label>Question Name</label>
             <input type="text" name="question_name"><br>
