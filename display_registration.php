@@ -1,10 +1,24 @@
 <?php
 require "database.php";
+
 $first_name = $_POST ['first_name'];
 $last_name = $_POST ['last_name'];
 $birthday = $_POST ['birthday'];
 $email_address = $_POST ['email_address'];
 $password = $_POST ['password'];
+
+$query = "INSERT INTO accounts
+             (email, fname, lname, birthday, password)
+         VALUES (:email_address,:first_name, :last_name, :birthday, :password)";
+
+$statement = $db->perpare($query);
+$statement->bindValue(':email_address', $email_address);
+$statement->bindValue(':first_name', $first_name);
+$statement->bindValue(':last_name', $last_name);
+$statement->bindValue(':birthday', $birthday);
+$statement->bindValue(':password', $password);
+$statement->execute();
+$statement->closeCursor();
 ?>
 
 <html>
