@@ -11,7 +11,7 @@ $query = "INSERT INTO accounts
              (email, fname, lname, birthday, password)
          VALUES (:email_address,:first_name, :last_name, :birthday, :password)";
 
-$statement = $db->perpare($query);
+$statement = $db->prepare($query);
 $statement->bindValue(':email_address', $email_address);
 $statement->bindValue(':first_name', $first_name);
 $statement->bindValue(':last_name', $last_name);
