@@ -18,7 +18,11 @@ $statement->bindValue(':last_name', $last_name);
 $statement->bindValue(':birthday', $birthday);
 $statement->bindValue(':password', $password);
 $statement->execute();
+$id = $db->lastInsertId();
 $statement->closeCursor();
+
+
+header("Location: display_questions.php?userid=$id");
 ?>
 
 <html>

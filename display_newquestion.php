@@ -3,15 +3,16 @@ require "database.php";
 $question_name = $_POST ['question_name'];
 $question_skills = $_POST ['question_skills'];
 $question_body = $_POST ['question_body'];
+$id = $_POST ['userid'];
 
 $skillsarray=(explode(",",$question_skills));
 
 $query = "INSERT INTO questions
              (ownerid, title, body, skills)
-         VALUES (:FIXOWNERID,:question_name, :question_body, :question_skills)";
+         VALUES (:userid,:question_name, :question_body, :question_skills)";
 
 $statement = $db->prepare($query);
-$statement->bindValue(':OWNERID', $email_address);
+$statement->bindValue(':userid', $id);
 $statement->bindValue(':question_name', $question_name);
 $statement->bindValue(':question_body', $question_body);
 $statement->bindValue(':question_skills', $question_skills);
