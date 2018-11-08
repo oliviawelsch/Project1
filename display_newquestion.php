@@ -5,6 +5,18 @@ $question_skills = $_POST ['question_skills'];
 $question_body = $_POST ['question_body'];
 
 $skillsarray=(explode(",",$question_skills));
+
+$query = "INSERT INTO questions
+             (ownerid, title, body, skills)
+         VALUES (:FIXOWNERID,:question_name, :question_body, :question_skills)";
+
+$statement = $db->prepare($query);
+$statement->bindValue(':OWNERID', $email_address);
+$statement->bindValue(':question_name', $question_name);
+$statement->bindValue(':question_body', $question_body);
+$statement->bindValue(':question_skills', $question_skills);
+$statement->execute();
+$statement->closeCursor();
 ?>
 
 
