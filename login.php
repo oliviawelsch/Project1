@@ -21,7 +21,6 @@
     </div>
 
     <div id="buttons">
-        <label>&nbsp;</label>
         <input type="submit" value="Log In"><br>
     </div>
 </form>
