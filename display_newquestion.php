@@ -18,6 +18,8 @@ $statement->bindValue(':question_body', $question_body);
 $statement->bindValue(':question_skills', $question_skills);
 $statement->execute();
 $statement->closeCursor();
+
+header("Location: displayquestions.php?userid=$id");
 ?>
 
 

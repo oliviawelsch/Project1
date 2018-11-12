@@ -1,10 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+body {
+    background: #DCDDDF url(http://cssdeck.com/uploads/media/items/7/7AF2Qzt.png);
+    color: #000;
+    font: 14px Arial;
+    margin: 200;
+    padding: 100;
+    position: center;
+}
+
+main{
+    background: #33cccc;
+    width:700px;
+    border-radius:6px;
+    margin: 0 auto 0 auto;
+    padding:0px 0px 50px 0px;
+    border: #fbf4ff 4px solid;
+    text-align: center;
+
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Geneva;
+}
+
+td{
+    align: center;
+}

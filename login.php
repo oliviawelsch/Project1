@@ -12,13 +12,20 @@
 
 <form action="display_login.php" method="post">
 
+    <table>
+        <tr>
     <div id="data">
-        <label>Email Address:</label>
-        <input type="text" name="email_address"><br>
+        <td>Email Address:</td>
+        <td><input type="text" name="email_address"><td>
+    </tr>
 
-        <label>Password:</label>
-        <input type="text" name="password"><br>
-    </div>
+        <tr>
+            <td>Password:</td>
+            <td><input type="text" name="password"></td>
+
+        </tr>
+        </div>
+    </table>
 
     <div id="buttons">
         <input type="submit" value="Log In"><br>
