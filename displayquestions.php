@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Questions</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="displayquestions.css">
+</head>
+
+<body>
+<div class="container">
+    <main>
+
 <?php
 require "database.php";
 $id = $_GET["userid"];
@@ -6,8 +21,11 @@ $first_name = $_GET ['fname'];
 $last_name = $_GET ['lname'];
 
 echo "<h1>Hello $first_name $last_name</h1>";
+?>
+    </main>
 
-
+<aside>
+<?php
 global $db;
 $query = "SELECT * FROM questions WHERE ownerid = :id";
 $statement = $db->prepare($query);
@@ -30,9 +48,16 @@ else {foreach ($questions as $result) {
 
 ?>
 
-<form action ="newquestion.php?email=<?php echo $email_address ?>" method= "post" >
-    <input type="submit" value="Add Question">
-</form>
 
 
+</aside>
 
+    <main>
+    <form action ="newquestion.php?email=<?php echo $email_address ?>" method= "post" >
+        <input type="submit" value="Add Question">
+    </form>
+    </main>
+
+</div>
+</body>
+</html>
