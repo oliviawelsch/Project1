@@ -26,7 +26,21 @@ else if(strlen($password) <8) {echo("Password must be at least 8 characters.");}
 else {echo($password);}
 ?><br>
 
-<?php header("Location: displayquestions.php?userid=$id");
+<?php
+$query = "SELECT * FROM accounts WHERE email = :email and password =:password";
+$statement = $db->prepare($query);
+$statement->bindValue(":email", $email_address);
+$statement->bindValue(":password", $password);
+$statement->execute();
+$user = $statement->fetch();
+$statement->closeCursor();
+
+$id=$user['id'];
+$first_name=$user['fname'];
+$last_name=$user['lname'];
+?>
+
+<?php header("Location: displayquestions.php?userid=$id&fname=$first_name&lname=$last_name");
 ?>
 
 </body>

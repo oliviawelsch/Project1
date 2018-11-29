@@ -41,9 +41,9 @@ else {foreach ($questions as $result) {
     $question_name = $result['title']. '<br>';
     $question_skills = $result['skills']. '<br>';
     $question_body = $result['body']. '<br>';
-    echo "<br> Question Title: $question_name";
+    echo "<br>Question Title: $question_name";
     echo "<br> Skills: $question_skills";
-    echo "<br> Body: $question_body";}
+    echo "<br> Body: $question_body <br><br>";}
 }
 
 ?>
