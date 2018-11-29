@@ -22,7 +22,7 @@ $id = $db->lastInsertId();
 $statement->closeCursor();
 
 
-header("Location: displayquestions.php?userid=$id");
+header("Location: displayquestions.php?userid=$id&fname=$first_name&lname=$last_name");
 ?>
 
 <html>
