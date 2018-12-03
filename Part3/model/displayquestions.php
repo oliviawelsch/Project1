@@ -1,31 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Display Questions</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="displayquestions.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../view/displayquestions.css">
 </head>
 
-<body>
-<div class="container">
-    <main>
 
 <?php
-require "database.php";
+
+include "model/database.php";
+
+
 $id = $_GET["userid"];
 $email_address = $_GET['email'];
 $first_name = $_GET ['fname'];
 $last_name = $_GET ['lname'];
 
 echo "<h1>Hello $first_name $last_name</h1>";
-?>
-    </main>
 
-<aside>
-<?php
+
 global $db;
 $query = "SELECT * FROM questions WHERE ownerid = :id";
 $statement = $db->prepare($query);
@@ -46,19 +39,17 @@ else {foreach ($questions as $result) {
     echo "<br> Body: $question_body <br><br>";}
 }
 
+echo "<a href = 'edit.php?id=$id&&title=$question_name&&skills=$question_skills&&body=$question_body'>Edit<a></td><br>";
+echo "<a href = 'edit.php?id=$id'>Delete<a></td><br><br>";
 ?>
 
 
 
-</aside>
-
-    <main>
     <form action ="newquestion.php" method= "get" >
         <input type="hidden" name="userid" value="<?php echo $id ?>">
         <input type="hidden" name="email" value="<?php echo $email_address ?>">
         <input type="submit" value="Add Question">
     </form>
-    </main>
 
 </div>
 </body>

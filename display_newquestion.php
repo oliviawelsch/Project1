@@ -19,7 +19,11 @@ $statement->bindValue(':question_skills', $question_skills);
 $statement->execute();
 $statement->closeCursor();
 
-header("Location: displayquestions.php?userid=$id");
+/*$id=$user['id'];
+$first_name=$user['fname'];
+$last_name=$user['lname'];*/
+
+header("Location: displayquestions.php?userid=$id&fname=$first_name&lname=$last_name");
 ?>
 
 
