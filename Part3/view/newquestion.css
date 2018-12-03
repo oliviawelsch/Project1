@@ -1,0 +1,32 @@
+body {
+    background: #DCDDDF url(http://cssdeck.com/uploads/media/items/7/7AF2Qzt.png);
+    color: #000;
+    font: 14px Arial;
+    margin: 200;
+    padding: 1000;
+    position: center;
+}
+
+main{
+    background: #33cccc;
+    width:700px;
+    border-radius:6px;
+    margin: 0 auto 0 auto;
+    border: #fbf4ff 4px solid;
+    text-align: center;
+
+
+}
+
+* {
+    font-family: Geneva;
+    box-sizing: border-box;
+}
+
+.container{
+    padding: 20px;
+}
+
+.form-control {
+    padding: 10px;
+}
