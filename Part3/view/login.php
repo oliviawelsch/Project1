@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../login.css">
 </head>
 <body>
 
@@ -14,7 +14,8 @@
 <main>
     <h2>Login Form</h2>
 
-<form class="form-horizontal" action="display_login.php" method="post">
+<form class="form-horizontal" action="." method="post">
+    <input type="hidden" name="action" value="login">
     <div class="form-group">
         <label class="control-label col-sm-2" for="email">Email Address:</label>
     <div class="col-sm-10">

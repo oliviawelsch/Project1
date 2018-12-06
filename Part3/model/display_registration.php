@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../view/registration.css">
+<link rel="stylesheet" href="../registration.css">
 
 <?php
 include "database.php";
@@ -32,7 +32,6 @@ else if(strlen($password) <8) {echo("Password must be at least 8 characters.");}
 else {echo($password);}
 
 
-
 $query = "INSERT INTO accounts
              (email, fname, lname, birthday, password)
          VALUES (:email_address,:first_name, :last_name, :birthday, :password)";
@@ -46,6 +45,7 @@ $statement->bindValue(':password', $password);
 $statement->execute();
 $id = $db->lastInsertId();
 $statement->closeCursor();
+
 
 
 header("Location: displayquestions.php?userid=$id&fname=$first_name&lname=$last_name");

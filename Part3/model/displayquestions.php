@@ -2,46 +2,31 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="../view/displayquestions.css">
+<link rel="stylesheet" href="../displayquestions.css">
 </head>
 
 
 <?php
 
-include "model/database.php";
-
-
-$id = $_GET["userid"];
-$email_address = $_GET['email'];
-$first_name = $_GET ['fname'];
-$last_name = $_GET ['lname'];
-
 echo "<h1>Hello $first_name $last_name</h1>";
-
-
-global $db;
-$query = "SELECT * FROM questions WHERE ownerid = :id";
-$statement = $db->prepare($query);
-$statement->bindValue(":id", $id);
-$statement->execute();
-$questions = $statement->fetchAll();
-$statement->closeCursor();
-
-
+?>
+<aside>
+<?php
 if(count($questions) < 1 )
 {echo "<h2>You have not asked a question yet. Use the <b>Add Question</b> button to ask your first question.</h2>";}
 else {foreach ($questions as $result) {
-    $question_name = $result['title']. '<br>';
-    $question_skills = $result['skills']. '<br>';
-    $question_body = $result['body']. '<br>';
-    echo "<br>Question Title: $question_name";
-    echo "<br> Skills: $question_skills";
-    echo "<br> Body: $question_body <br><br>";}
+    $question_name = $result['title'];
+    $question_skills = $result['skills'];
+    $question_body = $result['body'];
+    echo "<br>Question Title: $question_name<br>";
+    echo "<br> Skills: $question_skills<br>";
+    echo "<br> Body: $question_body <br><br>";
+    echo "<a href = 'index.php?action=display_edit_question&id=$id&title=$question_name&skills=$question_skills&body=$question_body'>Edit</a></td><br>";
+    echo "<a href = 'index.php?id=$id&action=delete_question'>Delete</a></td><br><br>";}
 }
-
-echo "<a href = 'edit.php?id=$id&&title=$question_name&&skills=$question_skills&&body=$question_body'>Edit<a></td><br>";
-echo "<a href = 'edit.php?id=$id'>Delete<a></td><br><br>";
 ?>
+</aside>
+
 
 
 

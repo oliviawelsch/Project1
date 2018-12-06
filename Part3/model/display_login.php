@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../view/login.css">
+<link rel="stylesheet" href="../login.css">
 
 <?php
 include "model/database.php";

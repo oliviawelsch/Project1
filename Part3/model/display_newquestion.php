@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../view/newquestion.css">
+<link rel="stylesheet" href="../newquestion.css">
 
 
 <?php

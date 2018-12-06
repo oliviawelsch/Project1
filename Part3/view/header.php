@@ -3,7 +3,7 @@
 <head>
     <title>Olivia's Question Bank</title>
     <link rel="stylesheet" type="text/css"
-          href="displayquestions.css">
+          href="../displayquestions.css">
 </head>
 
 <main>

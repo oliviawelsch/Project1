@@ -11,7 +11,7 @@ $email_address = $_GET ['email'];
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="newquestion.css">
+    <link rel="stylesheet" href="../newquestion.css">
 </head>
 <body>
 
@@ -24,14 +24,14 @@ $email_address = $_GET ['email'];
         <div class="form-group">
             <label class="control-label col-sm-2" for="question_name">Question Name:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="question_name" placeholder="Enter the name of your Question" name="question_name">
+                <input type="text" value="<?php echo $question_name?>" class="form-control" id="question_name" placeholder="Enter the name of your Question" name="question_name">
             </div>
         </div>
 
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="skills">Skills:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="skills" placeholder="Enter Your Skills Separated by a Comma" name="question_skills">
+                        <input type="text" value="<?php echo $question_skills?>" class="form-control" id="skills" placeholder="Enter Your Skills Separated by a Comma" name="question_skills">
                     </div>
                 </div>
 
@@ -39,7 +39,7 @@ $email_address = $_GET ['email'];
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="body">Question Body:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="body" placeholder="Ask your Question Here" name="question_body">
+                        <input type="text" value="<?php echo $question_body?>" class="form-control" id="body" placeholder="Ask your Question Here" name="question_body">
                     </div>
                 </div>
 

@@ -1,3 +1,5 @@
+/* Moved from model folder*/
+
 <?php
 require "database.php";
 $id = $_GET["userid"];
@@ -16,14 +18,14 @@ $question_body = $_GET ['body'];
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="newquestion.css">
+    <link rel="stylesheet" href="../newquestion.css">
 </head>
 <body>
 
 <div class="container">
 <main>
     <h2>Edit Question Form</h2>
-    <form class="form-horizontal" action="display_newquestion.php?id=<?php echo $id?>" method="post">
+    <form class="form-horizontal" action="../model/display_newquestion.php?id=<?php echo $id?>" method="post">
         <input type="hidden" name="userid" value="<?php echo $_GET["userid"]?>">
 
         <div class="form-group">
