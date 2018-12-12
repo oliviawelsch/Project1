@@ -1,11 +1,9 @@
 <?php
 require('model/database.php');
-//require('model/display_login.php');
-//require('model/display_newquestion.php');
-//require('model/display_registration.php');
-//require('model/displayquestions.php');
 require('model/accounts_db.php');
 require('model/questions_db.php');
+require('model/accounts.php');
+require('model/questions.php');
 
 
 include 'view/header.php';
@@ -29,7 +27,7 @@ else if ($action == 'login')
 {
     $email_address=$_POST["email_address"];
     $password=$_POST["password"];
-    $userid = checklogin($email_address, $password);
+    $userid = AccountsDB::checklogin($email_address, $password);
     echo $userid;
     if ($userid != FALSE ){
         header("Location: .?action=display_questions&userid=$userid");
@@ -54,7 +52,7 @@ else if ($action == 'register')
         $birthday = $_POST ['birthday'];
         $email_address = $_POST ['email_address'];
         $password = $_POST ['password'];
-        $id=addnewuser($first_name, $last_name, $birthday, $email_address, $password);
+        $id = AccountsDB::addnewuser($first_name, $last_name, $birthday, $email_address, $password);
         header("Location: .?action=display_questions&userid=$id");
     }
 
@@ -65,7 +63,7 @@ else if ($action == 'register')
 else if ($action == 'display_questions')
 {
     $userid = $_GET["userid"];
-    $questions = getusersquestions($userid);
+    $questions = QuestionsDB::getusersquestions($userid);
     include ('model/displayquestions.php');
 }
 
@@ -85,7 +83,7 @@ else if ($action == 'create_new_question')
         $question_skills = $_POST ['question_skills'];
         $question_body = $_POST ['question_body'];
         $id = $_POST ['userid'];
-        addnewquestion($question_name, $question_skills, $question_body);
+        QuestionsDB::addnewquestion($question_name, $question_skills, $question_body, $id);
         header("Location: .?action=display_questions&userid=$id");
     }
 
@@ -94,10 +92,10 @@ else if ($action == 'display_edit_question')
 {
     $userid = $_GET["userid"];
     $questionid = $_GET["questionid"];
-    $question= getquestionbyid($questionid);
-    $question_name=$question["title"];
-    $question_skills=$question["skills"];
-    $question_body=$question["body"];
+    $question = QuestionsDB::getquestionbyid($questionid);
+    $question_name=$question->getTitle();
+    $question_skills=$question->getSkills();
+    $question_body=$question->getBody();
     include ('view/newquestion.php');
 }
 
@@ -109,7 +107,7 @@ else if ($action == 'edit_question')
         $question_name = $_POST['title'];
         $question_skills = $_POST['skills'];
         $question_body = $_POST['body'];
-        editquestion($question_name, $question_skills, $question_body, $id);
+        QuestionsDB::editquestion($question_name, $question_skills, $question_body, $id);
 
         header("Location: .?action=display_questions&userid=$id");
     }
@@ -120,7 +118,7 @@ else if ($action == 'delete_question')
     {
         $id = $_POST["userid"];
         $email_address = $_POST["email"];
-        deletequestion($id);
+        QuestionsDB::deletequestion($id);
 
         header("Location: .?action=display_questions&userid=$id");
 
@@ -128,4 +126,19 @@ else if ($action == 'delete_question')
 
 
 include 'view/footer.php';
+
+
+
+/*
+
+else if ($action == 'display_all_questions')
+{
+$userid = $_GET["userid"];
+$questions = getallquestions($userid);
+include ('model/displayquestions.php');
+}
+
+
+
+*/
 ?>

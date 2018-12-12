@@ -5,23 +5,26 @@
 <link rel="stylesheet" href="../displayquestions.css">
 </head>
 
-
+<aside>
 <?php
 
 echo "<h1>Hello $first_name $last_name</h1>";
 ?>
+    <h3>My Questions All Questions</h3>
+</aside>
+
 <aside>
 <?php
 if(count($questions) < 1 )
 {echo "<h2>You have not asked a question yet. Use the <b>Add Question</b> button to ask your first question.</h2>";}
 else {foreach ($questions as $result) {
-    $question_name = $result['title'];
-    $question_skills = $result['skills'];
+    $question_name = $result->getTitle();
+    $question_skills = $result->skills();
     $question_body = $result['body'];
     echo "<br>Question Title: $question_name<br>";
     echo "<br> Skills: $question_skills<br>";
     echo "<br> Body: $question_body <br><br>";
-    echo "<a href = 'index.php?action=display_edit_question&id=$id&title=$question_name&skills=$question_skills&body=$question_body'>Edit</a></td><br>";
+    echo "<a href = 'index.php?action=display_edit_question&id=$id&title=$question_name&skills=$question_skills&body=$question_body'>Edit  </a></td>";
     echo "<a href = 'index.php?id=$id&action=delete_question'>Delete</a></td><br><br>";}
 }
 ?>
