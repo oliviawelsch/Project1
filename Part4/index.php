@@ -6,8 +6,9 @@ require('model/accounts.php');
 require('model/questions.php');
 
 
-
 include 'view/header.php';
+
+session_start();
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
@@ -29,6 +30,7 @@ else if ($action == 'login')
     $userid = AccountsDB::checklogin($email_address, $password);
     echo $userid;
     if ($userid != FALSE ){
+        $_SESSION['userid']=$userid;
         header("Location: .?action=display_questions&userid=$userid");
     } else {
        header("Location: .?action=display_registration");
@@ -56,7 +58,10 @@ else if ($action == 'register')
 
 else if ($action == 'display_questions')
 {
-    $userid = $_GET["userid"];
+    $userid = $_SESSION["userid"];
+    if (empty($userid)){
+        header("Location: .");
+    }
     $view = $_GET["view"];
     if ($view == 'all')
         $questions= QuestionsDB::getallquestions($id);
@@ -64,18 +69,25 @@ else if ($action == 'display_questions')
     include ('model/displayquestions.php');
 }
 
+
 else if ($action == 'display_single_question')
 {
-    $userid = $_GET["userid"];
+    $userid = $_SESSION["userid"];
+    if (empty($userid)){
+        header("Location: .");
+    }
     $questionid = $_GET["id"];
     $question = QuestionsDB::getquestionbyid($questionid);
-    include ('model/display_single_question.php');
+    include ('view/display_single_question.php');
 }
 
 
 else if ($action == 'display_new_question')
 {
-    $userid = $_GET["userid"];
+    $userid = $_SESSION["userid"];
+    if (empty($userid)){
+        header("Location: .");
+    }
     include ('view/newquestion.php');
 }
 
@@ -93,7 +105,10 @@ else if ($action == 'create_new_question')
 
 else if ($action == 'display_edit_question')
 {
-    $userid = $_GET["userid"];
+    $userid = $_SESSION["userid"];
+    if (empty($userid)){
+        header("Location: .");
+    }
     $questionid = $_GET["questionid"];
     $question = QuestionsDB::getquestionbyid($questionid);
     $question_name=$question->getTitle();
@@ -126,22 +141,13 @@ else if ($action == 'delete_question')
     }
 
 
-include 'view/footer.php';
 
-
-
-/*
- else if ($action == 'display_single_question')
+else if ($action == 'logout')
     {
-        $id = $_POST["userid"];
-        $email_address = $_POST["email"];
-        QuestionsDB::deletequestion($id);
-
-        header("Location: .?action=display_questions&userid=$id");
-
+        session_destroy();
     }
 
- */
+include 'view/footer.php';
 
 
 ?>
