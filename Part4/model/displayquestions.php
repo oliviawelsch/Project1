@@ -27,7 +27,8 @@ else {foreach ($questions as $result) {
     echo "<br> Skills: $question_skills<br>";
     echo "<br> Body: $question_body <br><br>";
     echo "<a href = 'index.php?action=display_edit_question&id=$id&title=$question_name&skills=$question_skills&body=$question_body'>Edit  </a></td>";
-    echo "<a href = 'index.php?id=$id&action=delete_question'>Delete</a></td><br><br>";}
+    echo "<a href = 'index.php?id=$id&action=delete_question'>Delete</a></td><br><br>";
+    echo "<a href = 'index.php?id=$id&action=display_single_question'>View Question</a></td><br><br>";}
 }
 ?>
 

@@ -6,6 +6,7 @@ require('model/accounts.php');
 require('model/questions.php');
 
 
+
 include 'view/header.php';
 
 $action = filter_input(INPUT_POST, 'action');
@@ -15,8 +16,6 @@ if ($action == NULL) {
         $action = 'display_login';
     }
 }
-
-
 
 if ($action == 'display_login')
 {
@@ -37,8 +36,6 @@ else if ($action == 'login')
 }
 
 
-
-
 else if ($action == 'display_registration')
 {
     include ('view/registration.php');
@@ -57,7 +54,6 @@ else if ($action == 'register')
     }
 
 
-
 else if ($action == 'display_questions')
 {
     $userid = $_GET["userid"];
@@ -66,6 +62,14 @@ else if ($action == 'display_questions')
         $questions= QuestionsDB::getallquestions($id);
     else $questions = QuestionsDB::getusersquestions($userid);
     include ('model/displayquestions.php');
+}
+
+else if ($action == 'display_single_question')
+{
+    $userid = $_GET["userid"];
+    $questionid = $_GET["id"];
+    $question = QuestionsDB::getquestionbyid($questionid);
+    include ('model/display_single_question.php');
 }
 
 
@@ -111,7 +115,6 @@ else if ($action == 'edit_question')
     }
 
 
-
 else if ($action == 'delete_question')
     {
         $id = $_POST["userid"];
@@ -126,4 +129,23 @@ else if ($action == 'delete_question')
 include 'view/footer.php';
 
 
+
+/*
+ else if ($action == 'display_single_question')
+    {
+        $id = $_POST["userid"];
+        $email_address = $_POST["email"];
+        QuestionsDB::deletequestion($id);
+
+        header("Location: .?action=display_questions&userid=$id");
+
+    }
+
+ */
+
+
 ?>
+
+
+
+
