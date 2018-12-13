@@ -141,15 +141,12 @@ else if ($action == 'delete_question')
     }
 
 
-
 else if ($action == 'logout')
     {
         session_destroy();
     }
 
 include 'view/footer.php';
-
-
 ?>
 
 

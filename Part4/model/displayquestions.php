@@ -12,7 +12,7 @@
 
         echo "<h3><a href = 'index.php?id=$id&action=display_questions'>My Questions</a>";
         echo "<h3><a href = 'index.php?action=display_questions'>All Questions</a>";
-        echo "<h3><a href = 'index.php?action=display_questions'>Log Out</a>";
+        echo "<h3><a href = 'index.php?action=logout'>Log Out</a>";
     ?>
 </aside>
 
