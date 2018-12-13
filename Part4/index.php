@@ -31,9 +31,11 @@ else if ($action == 'login')
     echo $userid;
     if ($userid != FALSE ){
         $_SESSION['userid']=$userid;
+        echo 'PAss';
         header("Location: .?action=display_questions&userid=$userid");
     } else {
-       header("Location: .?action=display_registration");
+       //header("Location: .?action=display_registration");
+        echo 'Fail';
     }
 }
 
@@ -146,9 +148,5 @@ else if ($action == 'logout')
         session_destroy();
     }
 
-include 'view/footer.php';
+//include 'view/footer.php';
 ?>
-
-
-
-

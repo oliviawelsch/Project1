@@ -6,6 +6,7 @@ $dsn = "mysql:host=$hostname;dbname=$username";
 try {
     $db = new PDO($dsn, $username, $password);
 } catch(PDOException $e) {
+    exit('ERROR');
     echo "Connection failed: " . $e->getMessage();
 }
 ?>

@@ -7,7 +7,7 @@ class Accounts {
     private $birthday;
     private $password;
 
-    public function _construct($id, $email, $fname, $lname, $birthday, $password){
+    public function _construct($id, $email, $fname = null, $lname = null, $birthday = null, $password = null){
         $this->id = $id;
         $this->email = $email;
         $this->fname = $fname;

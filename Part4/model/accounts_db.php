@@ -3,7 +3,7 @@ class AccountsDB{
    public static function checklogin($email_address, $password)
     {
         global $db;
-        $query = "SELECT * FROM accounts WHERE email = :email and password =:password";
+        $query = "SELECT * FROM accounts WHERE email = '$email_address' and password = '$password'";
         $statement = $db->prepare($query);
         $statement->bindValue(":email", $email_address);
         $statement->bindValue(":password", $password);
@@ -11,9 +11,9 @@ class AccountsDB{
         $statement->closeCursor();
 
         $row = $statement->fetch();
-        $accounts = new Account($row['email'], $row['password']);
 
-        if ($accounts != NULL) {
+        if ($row != NULL) {
+            $accounts = new Account($row['id'], $row['email'], $row['password']);
             return $accounts;
         } else {
             return FALSE;
