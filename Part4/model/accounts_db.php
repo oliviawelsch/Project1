@@ -1,5 +1,4 @@
 <?php
-
 class AccountsDB{
    public static function checklogin($email_address, $password)
     {
@@ -39,7 +38,7 @@ class AccountsDB{
 
         $accounts = array();
         foreach($statement as $row){
-            $account = new Account($row['email_address'], $row['first_name'], ['last_name'], ['birthday'], ['passowrd']);
+            $account = new Account($row['email_address'], $row['first_name'], ['last_name'], ['birthday'], ['password']);
             $accounts[] = $account;
         }
 

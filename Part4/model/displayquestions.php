@@ -6,11 +6,13 @@
 </head>
 
 <aside>
-<?php
+    <?php
 
-echo "<h1>Hello $first_name $last_name</h1>";
-?>
-    <h3>My Questions All Questions</h3>
+        echo "<h1>Hello $first_name $last_name</h1>";
+
+        echo "<h3><a href = 'index.php?id=$id&action=display_questions'>My Questions</a>";
+        echo "<h3><a href = 'index.php?action=display_questions'>All Questions</a>";
+    ?>
 </aside>
 
 <aside>
@@ -20,7 +22,7 @@ if(count($questions) < 1 )
 else {foreach ($questions as $result) {
     $question_name = $result->getTitle();
     $question_skills = $result->skills();
-    $question_body = $result['body'];
+    $question_body = $result->getBody();
     echo "<br>Question Title: $question_name<br>";
     echo "<br> Skills: $question_skills<br>";
     echo "<br> Body: $question_body <br><br>";
@@ -28,10 +30,9 @@ else {foreach ($questions as $result) {
     echo "<a href = 'index.php?id=$id&action=delete_question'>Delete</a></td><br><br>";}
 }
 ?>
+
+
 </aside>
-
-
-
 
     <form action ="newquestion.php" method= "get" >
         <input type="hidden" name="userid" value="<?php echo $id ?>">

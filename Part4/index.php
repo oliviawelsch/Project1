@@ -58,15 +58,15 @@ else if ($action == 'register')
 
 
 
-
-
 else if ($action == 'display_questions')
 {
     $userid = $_GET["userid"];
-    $questions = QuestionsDB::getusersquestions($userid);
+    $view = $_GET["view"];
+    if ($view == 'all')
+        $questions= QuestionsDB::getallquestions($id);
+    else $questions = QuestionsDB::getusersquestions($userid);
     include ('model/displayquestions.php');
 }
-
 
 
 else if ($action == 'display_new_question')
@@ -74,7 +74,6 @@ else if ($action == 'display_new_question')
     $userid = $_GET["userid"];
     include ('view/newquestion.php');
 }
-
 
 
 else if ($action == 'create_new_question')
@@ -103,7 +102,6 @@ else if ($action == 'display_edit_question')
 else if ($action == 'edit_question')
     {
         $id = $_POST["userid"];
-        $email_address = $_POST['email'];
         $question_name = $_POST['title'];
         $question_skills = $_POST['skills'];
         $question_body = $_POST['body'];
@@ -128,17 +126,4 @@ else if ($action == 'delete_question')
 include 'view/footer.php';
 
 
-
-/*
-
-else if ($action == 'display_all_questions')
-{
-$userid = $_GET["userid"];
-$questions = getallquestions($userid);
-include ('model/displayquestions.php');
-}
-
-
-
-*/
 ?>

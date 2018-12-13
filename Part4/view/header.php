@@ -7,7 +7,7 @@
 </head>
 
 <main>
-    <h1>Olivia's Question Bank</h1>
+    <h1>Olivia's IS 218 Question Bank</h1>
 </main>
 
 <body>
